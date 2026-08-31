@@ -1,26 +1,66 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Montserrat:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap');
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Couleurs identitaires */
+  --color-blue-dark: #03417A;
+  --color-yellow: #FFD500;
+  --color-brick: #C94B3C;
+  --color-green: #4F7D5A;
+  --color-purple: #72518A;
+  --color-text: #343232;
+  --color-blue-light: #CEE5F2;
+  --color-yellow-light: #FFF7D0;
+  --color-green-light: #E5FBEA;
+  --color-purple-light: #F9F2FF;
+  --color-brick-light: #FFE5E2;
+  --color-border: #D9D9D9;
+
+  /* Polices */
+  --font-heading: 'Montserrat', Arial, sans-serif;
+  --font-body: 'Nunito Sans', Arial, sans-serif;
+  --font-accent: 'Kalam', cursive;
+
+  /* Rayons */
+  --radius-sm: 2px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: #fcfbf8;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-blue-light);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
